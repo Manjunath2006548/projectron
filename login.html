@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projectron | Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Adding the background image logic directly while keeping your structure intact */
+        .auth-wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.8)), 
+                        url('https://images.unsplash.com/photo-1581092334651-ddf26d9a1930?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Essential styling to ensure the card is visible over the background */
+        .glass-card {
+            background: rgba(22, 30, 45, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 210, 250, 0.3);
+            width: 360px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .dark-theme {
+            margin: 0;
+            padding: 0;
+            background-color: #0a0f18;
+            color: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: white;
+        }
+
+        .btn-main {
+            background: #00d2ff;
+            color: #000;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .toggle-text a {
+            color: #00d2ff;
+            text-decoration: none;
+        }
+
+        .error-text {
+            color: #ff4d4d;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <div class="auth-wrapper">
+        <div class="glass-card">
+            <h2>Student Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email Address">
+            <input type="password" id="loginPass" placeholder="Password">
+            <button onclick="handleLogin()" class="btn-main">Login to Access</button>
+            <p class="toggle-text">No account? <a href="register.html">Register here</a></p>
+            <p id="loginError" class="error-text" style="display:none;">Invalid Email or Password.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

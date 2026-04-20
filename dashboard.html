@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projectron | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <nav class="navbar">
+        <span class="nav-logo">PROJECTRON</span>
+        <div class="user-info">
+            Welcome, <span id="displayUser" style="color:#00d2ff">User</span> | 
+            <button onclick="logout()" class="btn-logout">Logout</button>
+            <button onclick="deleteAccount()" class="btn-delete" style="color: #ff4d4d; background: none; border: 1px dashed #ff4d4d; padding: 5px 10px; border-radius: 20px; cursor: pointer; margin-left: 10px;">
+                 Delete Account
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="selector-card">
+            <label>Select Engineering Branch:</label>
+            <select id="domainSelect" onchange="updateDashboard()">
+                <option value="">-- Choose Branch --</option>
+                <option value="cs">Computer Science (CS)</option>
+                <option value="ece">Electronics (ECE)</option>
+                <option value="eee">Electrical (EEE)</option>
+                <option value="mech">Mechanical (MECH)</option>
+            </select>
+        </section>
+
+        <div id="projectGrid" class="main-grid"></div>
+    </div>
+
+    <div id="ideaModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Project Title</h2>
+            <div id="modalPriceTag" class="price-badge"></div>
+            
+            <div id="step-payment">
+                <p>Scan to pay and unlock the technical blueprint.</p>
+                <div class="qr-box">
+                    <img src="assets/qr-code.png" alt="Payment QR">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="utrInput" placeholder="Enter 12-digit UTR Number" maxlength="12">
+                    <button class="btn-main" onclick="processPayment()">Submit UTR to Owner</button>
+                </div>
+            </div>
+
+            <div id="step-verification" style="display: none;">
+                <h3>Verify Payment</h3>
+                <p>Admin is verifying your UTR. Enter the Secret Key to unlock:</p>
+                <div class="input-group">
+                    <input type="text" id="unlockKey" placeholder="Enter 4-Digit Key" maxlength="4">
+                    <button class="btn-main" onclick="verifyAndGenerate()">Verify & Unlock</button>
+                </div>
+            </div>
+
+            <div id="step-result" style="display: none;">
+                <div id="aiConceptOutput" class="blueprint-box"></div>
+                <p id="flowchartDesc" class="flow-text"></p>
+                <button class="btn-main" onclick="downloadPDF()">Download PDF</button>
+            </div>
+
+            <button class="btn-close" onclick="closeModal()">Close Window</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const user = sessionStorage.getItem('loggedInUser');
+        if (!user) {
+            window.location.href = 'login.html';
+        } else {
+            document.getElementById('displayUser').innerText = user;
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

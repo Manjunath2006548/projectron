@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projectron | Register</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="dark-theme">
+    <div class="auth-wrapper">
+        <div class="glass-card">
+            
+            <div id="regForm">
+                <h2>New Registration</h2>
+                <div class="input-group">
+                    <input type="text" id="regName" placeholder="Full Name" required>
+                    <input type="email" id="regEmail" placeholder="Email Address" required>
+                    <input type="password" id="regPass" placeholder="Password" required>
+                </div>
+                <button onclick="handleRegister()" class="btn-main">Create Account</button>
+                <p class="toggle-text">Already a member? <a href="login.html">Login</a></p>
+            </div>
+
+            <div id="verifySection" style="display:none;">
+                <h2>Verify Email</h2>
+                <p>Enter the 6-digit code sent to your inbox.</p>
+                <div class="input-group">
+                    <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6">
+                </div>
+                <button onclick="finalizeRegistration()" class="btn-main">Verify & Register</button>
+                <p class="toggle-text"><a href="#" onclick="location.reload()">Back to Registration</a></p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projectron | Engineering Blueprints</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero-bg">
+        <div class="overlay">
+            <div class="content">
+                <h1 class="logo">PROJECTRON: THE BLUEPRINT HUB</h1>
+                <p class="tagline">Empowering Engineers with Precision and Innovation.</p>
+                <button onclick="location.href='login.html'" class="btn-main">Get Started</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="ceo-section">
+        <div class="container">
+            <div class="ceo-card">
+                <div class="ceo-info">
+                    <h2>Manjunath Hebbar</h2>
+                    <p class="role">CEO & Founder, PROJECTRON</p>
+                    <hr class="accent-line">
+                    <p class="intro-text">
+                        "Projectron was born out of a vision to bridge the gap between academic theory and 
+                        real-world engineering execution. Under the leadership of Manjunath Hebbar, 
+                        we provide high-fidelity blueprints and AI-driven roadmaps to help students 
+                        and researchers turn complex ideas into functional prototypes."
+                    </p>
+                    <p class="vision">
+                        Our platform is dedicated to simplifying technical complexities across CS, ECE, EEE, and Mechanical 
+                        engineering, ensuring every innovator has the tools they need to succeed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="ideaModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-height: 90vh; overflow-y: auto; height: auto !important; display: flex; flex-direction: column;">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Project Title</h2>
+            <p id="modalPriceTag" class="price-badge">Price: ₹0</p>
+
+            <div id="step-payment" style="width: 100%;">
+                <h3>Payment Verification</h3>
+                <p style="margin-bottom: 15px;">Scan the QR code or pay to the Admin UPI, then enter your 12-digit UTR below.</p>
+                <div class="input-group">
+                    <input type="text" id="utrInput" placeholder="Enter 12-Digit UTR Number" maxlength="12">
+                    <button class="btn-main" onclick="processPayment()">Submit UTR</button>
+                </div>
+            </div>
+
+            <div id="step-verification" style="display: none; width: 100%; height: auto !important;">
+                <h3>Unlock Blueprint</h3>
+                <p style="white-space: normal !important; overflow: visible !important; display: block !important; line-height: 1.6; margin: 15px 0; color: #cbd5e1; text-align: center;">
+                    Admin has been notified. Please wait for 10 minutes; admin will share the secret key to your registered email id. Enter the secret code to access the files.
+                </p>
+                <div class="input-group">
+                    <input type="text" id="unlockKey" placeholder="Enter Secret Key" maxlength="4">
+                    <button class="btn-main" onclick="verifyAndGenerate()">Verify & Unlock</button>
+                </div>
+            </div>
+
+            <div id="step-result" style="display: none; width: 100%;">
+                <div id="aiConceptOutput" class="blueprint-box"></div>
+                <p id="flowchartDesc" class="flow-text"></p>
+                <button class="btn-main" onclick="downloadPDF()">Download PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
